@@ -4,11 +4,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
-const bodyparser=require('body-parser');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const registerRouter = require('./routes/register');
 
 const app = express();
 const port=3333;
@@ -16,17 +14,14 @@ const port=3333;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(bodyparser.urlencoded({ extended: true }));
-app.use(bodyparser.json());
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/register', registerRouter);
 
 mongoose.connect('mongodb+srv://kgh:0000@cluster-0.zgplc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
   useNewUrlParser: true,
@@ -51,6 +46,6 @@ app.use(function(err, req, res, next) {
 
 app.listen(port, ()=> {
   console.log(`server running on port ${port}`);
-})
+});
 
 module.exports = app;
