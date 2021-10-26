@@ -35,7 +35,7 @@ router.post('/login', (req, res)=> {
     if(!user) {
       return res.json({
         loginSuccess: false, 
-        message: "해당 이메일을 사용하는 유저가 없습니다."
+        message: "해당 이메일을 사용하는 사용자가 없습니다."
       });
     }
 
