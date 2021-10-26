@@ -9,11 +9,13 @@ react-nodejs-mongodb
 > yarn create react-app client
 
 # server 측에 설치한 패키지
-- nodemon
-- body-parser
 - bcryptjs
+- body-parser
+- jsonwebtoken
 - mongoose
+- nodemon
 
 # client 측에 설치한 패키지
-- react-router-dom
 - axios
+- react-router-dom
+

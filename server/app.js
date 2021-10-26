@@ -3,10 +3,10 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const mongodb = require('./utils/mongodb');
 
 const app = express();
 const port=3333;
@@ -22,15 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-mongoose.connect('mongodb+srv://kgh:0000@cluster-0.zgplc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(()=> {
-  console.log("MongoDB Connected..");
-}).catch(err=> {
-  console.log(err);
-});
 
 app.use(function(req, res, next) {
   next(createError(404));
