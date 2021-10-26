@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Users' });
 });
 
-//postman으로 테스트 시 Request를 JSON으로
+// postman으로 테스트 시 Request를 JSON으로
 router.post('/register', (req, res)=> {
   console.log(req.body);
   const user=new User(req.body);
