@@ -1,7 +1,8 @@
 const express = require('express');
-const router = express.Router();
 const mongoose = require('mongoose');
+const cookieParser=require('cookie-parser');
 
+const router = express.Router();
 const app = express();
 const { User } = require('../models/User');
 
@@ -24,6 +25,35 @@ router.post('/register', (req, res)=> {
 
     return res.status(200).json({
         success: true
+    });
+  });
+});
+
+router.post('/login', (req, res)=> {
+  User.findOne({ email: req.body.email }, (err, user)=> {
+    if(!user) {
+      return res.json({
+        loginSuccess: false, 
+        message: "해당 이메일을 사용하는 유저가 없습니다."
+      });
+    }
+
+    user.comparePassword(req.body.password, (err, isMatch)=> {
+      if(!isMatch) {
+        return res.json({
+          loginSuccess: false,
+          message: "암호가 다릅니다."
+        });
+      }
+
+      user.generateToken((err, user)=> {
+        if(err) return res.json(400).send(err);
+
+        res.cookie('x_auth', user.token).status(200).json({
+          loginSuccess: true,
+          userId: user._id
+        })
+      })
     });
   });
 });
