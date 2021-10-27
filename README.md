@@ -1,6 +1,10 @@
 # todo-list
 react-nodejs-mongodb   
 
+# 환경
+- server port : 3333
+- client port : 3030
+
 # server
 > npm i express-generator -g   
 > express server
