@@ -16,6 +16,12 @@ react-nodejs-mongodb
 - nodemon
 
 # client 측에 설치한 패키지
+- antd
 - axios
+- react-redux
 - react-router-dom
+- redux
+- redux-promis
+- redux-thunk
+- http-proxy-middleware 
 
