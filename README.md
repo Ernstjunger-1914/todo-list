@@ -15,6 +15,7 @@ react-nodejs-mongodb
 # server 측에 설치한 패키지
 - bcryptjs
 - body-parser
+- cors
 - jsonwebtoken
 - mongoose
 - nodemon
