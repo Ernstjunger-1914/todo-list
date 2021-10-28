@@ -9,16 +9,16 @@ function Login(props) {
     const [email, setEmail]=useState('');
     const [password, setPassword]=useState('');
 
-    const onEmailHandler=(e)=> {
-        setEmail(e.currentTarget.value);
+    const onEmailHandler=(event)=> {
+        setEmail(event.currentTarget.value);
     }
 
-    const onPasswordHandler=(e)=> {
-        setPassword(e.currentTarget.value);
+    const onPasswordHandler=(event)=> {
+        setPassword(event.currentTarget.value);
     }
 
-    const onSubmitHandler=(e)=> {
-        e.preventDefault();
+    const onSubmitHandler=(event)=> {
+        event.preventDefault();
 
         let body={
             email: email,

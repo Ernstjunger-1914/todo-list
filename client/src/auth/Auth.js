@@ -23,7 +23,7 @@ export default function(SpecificComponent, option, rootRoute=null) {
                         }
                     }
                 }
-            })
+            });
         }, []);
         return (
             <SpecificComponent />
