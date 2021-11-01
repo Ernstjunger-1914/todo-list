@@ -1,11 +1,11 @@
-const mysql=require('mysql');
+const sql=require('mysql');
 
 function mysql() {
-    const db=mysql.createConnection({
+    const db=sql.createConnection({
         user: 'root',
         host: 'localhost',
         password: '0000',
-        database: 'content'
+        database: 'ssd'
     });
 }
 

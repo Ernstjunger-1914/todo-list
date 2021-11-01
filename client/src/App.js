@@ -4,6 +4,7 @@ import './App.css';
 import Landing from './component/Landing';
 import Login from './component/Login';
 import Register from './component/Register';
+import Todo from './component/Todo';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route exact path='/' component={Landing} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
+          <Route exact path='/todo' component={Todo} />
         </Switch>
       </div>
     </BrowserRouter>
