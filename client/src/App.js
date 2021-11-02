@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Axios from 'axios';
 import './App.css';
+import Todoinsert from './component/Todoinsert';
 
 function App() {
   const [postname, setPostName]=useState('');
@@ -38,23 +39,11 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Switch>
-          <Route />
+          <Route exact='/c' component={Todoinsert} />
         </Switch>
-        <h1>CRUD</h1>
+        <h1>RUD</h1>
 
         <div className="form">
-          <label>Content Name</label>
-          <input type="text" name="postname" onChange={(e)=> {
-            setPostName(e.target.value)
-          }} />
-
-          <label>Main</label>
-          <input type="text" name="main"  onChange={(e)=> {
-            setMain(e.target.value)
-          }} />
-
-          <button onClick={submitpost}>Submit</button>
-
           {postList.map((val)=> {
             return (
               <div className="card">
