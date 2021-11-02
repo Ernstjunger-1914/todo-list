@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Axios from 'axios';
 import './App.css';
 
@@ -34,37 +35,42 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>CRUD</h1>
+    <BrowserRouter>
+      <div className="App">
+        <Switch>
+          <Route />
+        </Switch>
+        <h1>CRUD</h1>
 
-      <div className="form">
-        <label>Content Name</label>
-        <input type="text" name="postname" onChange={(e)=> {
-          setPostName(e.target.value)
-        }} />
+        <div className="form">
+          <label>Content Name</label>
+          <input type="text" name="postname" onChange={(e)=> {
+            setPostName(e.target.value)
+          }} />
 
-        <label>Main</label>
-        <input type="text" name="main"  onChange={(e)=> {
-          setMain(e.target.value)
-        }} />
+          <label>Main</label>
+          <input type="text" name="main"  onChange={(e)=> {
+            setMain(e.target.value)
+          }} />
 
-        <button onClick={submitpost}>Submit</button>
+          <button onClick={submitpost}>Submit</button>
 
-        {postList.map((val)=> {
-          return (
-            <div className="card">
-              <h1>{val.postname}</h1>
-              <p>{val.main}</p>
-              <button onClick={()=> {deletePost(val.postname)}}>Delete</button>
-              <input type="text" id="updateinput" onChange={(e)=> {
-                setNewMain(e.target.value)
-              }} />
-              <button onClick={()=> {updatePost(val.postname)}}>Update</button>
-            </div>
-          );
-        })}
+          {postList.map((val)=> {
+            return (
+              <div className="card">
+                <h1>{val.postname}</h1>
+                <p>{val.main}</p>
+                <button onClick={()=> {deletePost(val.postname)}}>Delete</button>
+                <input type="text" id="updateinput" onChange={(e)=> {
+                  setNewMain(e.target.value)
+                }} />
+                <button onClick={()=> {updatePost(val.postname)}}>Update</button>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
