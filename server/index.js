@@ -1,7 +1,6 @@
 const express=require('express')
 const app=express();
 const mysql=require('mysql');
-const bodyParser=require('body-parser');
 const cors=require('cors');
 
 const db=mysql.createPool({
@@ -13,7 +12,7 @@ const db=mysql.createPool({
 
 app.use(cors());
 app.use(express.json());
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res)=> {
     res.send("손소독");
