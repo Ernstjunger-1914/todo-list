@@ -2,7 +2,7 @@ import axios from "axios";
 import { AUTH_USER, LOGIN_USER, REGISTER_USER } from './type';
 
 export function Userlogin(dataToSubmit) {
-    const request=axios.post('http://localhost:3333/users/login', dataToSubmit).then(response => response.data);
+    const request=axios.post('http://localhost:3333/users/login', dataToSubmit, {withCredentials: true}).then(response => response.data);
 
     return { 
         type: LOGIN_USER,

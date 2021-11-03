@@ -23,7 +23,7 @@ router.get('/get', (req, res)=> {
 router.post('/insert', (req, res)=> {
   const postname=req.body.postname;
   const main=req.body.main;
-  const insert="insert into ssd.content(postname, main) values(?, ?)";
+  const insert="insert into content(postname, main) values(?, ?)";
 
   db.query(insert, [postname, main], (err, result)=> {
     console.log(result);
