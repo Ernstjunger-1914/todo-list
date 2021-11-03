@@ -17,18 +17,18 @@ function Todoinsert() {
         <>
             <h1>C</h1>
             <div className="form">
-            <label>Content Name</label>
-            <input type="text" name="postname" onChange={(e)=> {
-                setPostName(e.target.value)
-            }} />
+                <label>Content Name</label>
+                <input type="text" name="postname" onChange={(e)=> {
+                    setPostName(e.target.value)
+                }} />
 
-            <label>Main</label>
-            <input type="text" name="main"  onChange={(e)=> {
-                setMain(e.target.value)
-            }} />
+                <label>Main</label>
+                <input type="text" name="main"  onChange={(e)=> {
+                    setMain(e.target.value)
+                }} />
 
-            <button onClick={submitpost}>Submit</button>
-          </div>
+                <button onClick={submitpost}>Submit</button>
+            </div>
         </>
     );
 }
