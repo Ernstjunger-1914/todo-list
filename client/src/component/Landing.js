@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function Landing(props) {
     const onClickHandler=()=> {
-        axios.get(`http://localhost:3333/users/logout`, {withCredentials: true}).then(response => {
+        axios.get(`http://localhost:3333/users/logout`, { withCredentials: true }).then(response => {
             if(response.data.success) {
                 props.history.push('/login');
             } else {
