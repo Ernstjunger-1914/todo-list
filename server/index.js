@@ -19,7 +19,7 @@ app.get('/', (req, res)=> {
 });
 
 app.get('/api/get', (req, res)=> {
-    const sqlselect="select * from ssd.content";
+    const sqlselect="select * from content";
     db.query(sqlselect, (err, result)=> {
         res.send(result);
     });
@@ -29,7 +29,7 @@ app.post('/api/insert', (req, res)=> {
     const postname=req.body.postname;
     const main=req.body.main;
 
-    const sqlinsert="insert into ssd.content(postname, main) values(?, ?)"
+    const sqlinsert="insert into content(postname, main) values(?, ?)"
     db.query(sqlinsert, [postname, main], (err, result)=> {
         console.log(result);
     });
