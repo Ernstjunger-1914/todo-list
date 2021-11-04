@@ -48,7 +48,7 @@ function Todo() {
           setMain(e.target.value)
         }} />
 
-        <button onClick={submitpost}>Submit</button>
+        <button className="csubmit" onClick={submitpost}>Submit</button>
 
         {postList.map((val)=> {
           return (
