@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+// const mysql = require('mysql');
 const mysql = require('../utils/mysql');
 const app = express();
 const router = express.Router();
@@ -27,12 +28,12 @@ router.post('/insert', (req, res)=> {
 
   db.query(insert, [postname, main], (err, result)=> {
     console.log(result);
-  })
+  });
 });
 
 app.delete('/delete/:postname', (req, res)=> {
   const name=req.params.postname;
-  const sqldelete="delete from ssd.content where postname=?";
+  const sqldelete="delete from content where postname=?";
 
   db.query(sqldelete, name, (err, result)=> {
       if(err) {

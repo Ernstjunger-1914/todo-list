@@ -1,7 +1,7 @@
 const sql=require('mysql');
 
 function mysql() {
-    const mysql=sql.createConnection({
+    const db=sql.createPool({
         user: 'root',
         host: 'localhost',
         password: '0000',
