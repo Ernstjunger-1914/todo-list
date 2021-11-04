@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-// const mysql = require('mysql');
-const mysql = require('../utils/mysql');
+const mysql = require('mysql');
+// const mysql = require('../utils/mysql');
 const app = express();
 const router = express.Router();
 
@@ -9,15 +9,21 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const db=mysql.createPool({
+  user: 'root',
+  host: 'localhost',
+  password: '0000',
+  database: 'ssd'
+});
+
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Todo' });
 });
 
 router.get('/get', (req, res)=> {
-  const select="select * from content";
-
-  db.query(select, (req, res)=> {
-    res.send(result);
+  const sqlselect="select * from content";
+  db.query(sqlselect, (err, result)=> {
+      res.send(result);
   });
 });
 
