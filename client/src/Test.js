@@ -8,7 +8,7 @@ export default function Test() {
   const [time, setTime]=React.useState(new Date());
 
   React.useEffect(()=> {
-    setPeople([...Array(1000).keys()].map(key=> {
+    setPeople([...Array(10000).keys()].map(key=> {
       return {
         id: key,
         name: `${faker.name.firstName()} ${faker.name.lastName()}`,
@@ -29,13 +29,15 @@ export default function Test() {
       <div className="Test">
         <h1>{time.toISOString()}</h1>
         
-        <List width={600} height={600} rowHeight={50} rowCount={people.length} rowRenderer={({ key, index, style, parent })=> {
-          const person=people[index];
+          <List width={600} height={600} rowHeight={50} rowCount={people.length} rowRenderer={({ key, index, style, parent })=> {
+            const person=people[index];
 
-          return <div key={key} style={style}>
-            <h2>{person.name}</h2>
-          </div>
-        }} />
+            return (
+              <div key={key} style={style}>
+                <h2>{person.name}</h2>
+              </div>
+            );
+          }} />
       </div>
   );
 }
