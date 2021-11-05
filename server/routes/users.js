@@ -7,8 +7,6 @@ const app = express();
 const { User } = require('../models/User');
 const { auth } = require('../middleware/auth');
 
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
