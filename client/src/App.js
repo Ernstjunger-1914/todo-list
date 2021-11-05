@@ -4,7 +4,7 @@ import './App.css';
 import Landing from './component/Landing';
 import Login from './component/Login';
 import Register from './component/Register';
-import Todo from './component/Todo';
+import Todo from './todo/Todo';
 
 function App() {
   return (
