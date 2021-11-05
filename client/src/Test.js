@@ -5,6 +5,7 @@ import './App.css';
 
 export default function Test() {
   const [people, setPeople]=React.useState([]);
+  const [time, setTime]=React.useState(new Date());
 
   React.useEffect(()=> {
     setPeople([...Array(100).keys()].map(key=> {
@@ -16,8 +17,17 @@ export default function Test() {
     }));
   }, []);
 
+  React.useEffect(()=> {
+    const interval=setInterval(()=> {
+      setTime(new Date());
+    }, 1000);
+
+    return ()=> clearInterval(interval);
+  });
+
   return (
       <div className="Test">
+        <h1>{time.toISOString()}</h1>
         <ul>
           {people.map((person)=> (
             <li key={person.id}>
