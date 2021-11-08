@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 function InfiniteScrollPage() {
     const [items, setItems]=useState([]);
     const [hasMore, setHasMore]=useState(true);
     const [page, setPage]=useState(2);
+
+    useEffect(()=> {
+        const getComments=async()=> {
+            const res=await fetch(`http://localhost:3333/todo/get`);
+            const data=await res.json();
+            setItems(data);
+        };
+        getComments();
+    }, []);
 
     const fetchComments=async()=> {
         const res=await fetch(`http://localhost:3333/todo/get`);
@@ -24,7 +33,9 @@ function InfiniteScrollPage() {
     }
 
     return (
-        <InfiniteScroll dataLength={items.length} next={fetchData} />
+        <InfiniteScroll dataLength={items.length} next={fetchData} hasMore={hasMore}>
+            <div className="container"></div>
+        </InfiniteScroll>
     );
 }
 
