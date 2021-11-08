@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AUTH_USER, LOGIN_USER, REGISTER_USER } from './type';
+import { AUTH_USER, LOGIN_USER, REGISTER_USER } from './Type';
 
 export function Userlogin(dataToSubmit) {
     const request=axios.post('http://localhost:3333/users/login', dataToSubmit, {withCredentials: true}).then(response => response.data);
