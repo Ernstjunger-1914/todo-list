@@ -5,7 +5,6 @@ import Landing from './component/Landing';
 import Login from './component/Login';
 import Register from './component/Register';
 import InfiniteScrollPage from './todo/InfiniteScrollPage';
-import Todo from './todo/Todo';
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
           <Route exact path='/' component={Landing} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
-          <Route exact path='/todo' component={Todo} />
           <Route exact path='/test' component={InfiniteScrollPage} />
         </Switch>
       </div>
