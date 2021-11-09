@@ -56,7 +56,7 @@ function Todo() {
               <h1>{val.postname}</h1>
               <p>{val.main}</p>
               <button onClick={()=> {deletePost(val.postname)}}>Delete</button>
-              <input type="text" id="updateinput" onChange={(e)=> {
+              <input type="text" onChange={(e)=> {
                 setNewMain(e.target.value)
               }} />
               <button onClick={()=> {updatePost(val.postname)}}>Update</button>
